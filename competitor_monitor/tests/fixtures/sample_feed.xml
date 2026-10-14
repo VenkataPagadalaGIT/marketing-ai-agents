@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0"><channel><title>Acme Blog</title>
+<item><title>Acme launches Pricing Plus tier at $199/month</title><link>https://acme.example/blog/pricing-plus</link>
+<pubDate>Tue, 13 Oct 2026 09:00:00 GMT</pubDate>
+<description>Today we are introducing Pricing Plus, a new tier for agencies managing more than 25 client sites. It includes white-label reports, API access and priority support. Existing Pro customers can upgrade at a 20% discount until the end of the quarter. We built this after hearing from hundreds of agencies that the Pro plan was too small for their needs.</description></item>
+<item><title>Five ways to use our dashboard this autumn</title><link>https://acme.example/blog/autumn-tips</link>
+<pubDate>Mon, 12 Oct 2026 09:00:00 GMT</pubDate>
+<description>A short seasonal post with tips on using filters, saved views, scheduled exports, shared dashboards and keyboard shortcuts. Nothing new is launched here; this is a roundup of existing features written for newer users of the product who want to get more from it.</description></item>
+</channel></rss>

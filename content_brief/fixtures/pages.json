@@ -1,0 +1,5 @@
+{
+  "https://example.com/serp-1": {"url": "https://example.com/serp-1", "h2s": ["What to look for", "HubSpot", "Pipedrive", "Close", "Pricing compared", "FAQ"], "word_count": 2300},
+  "https://example.com/serp-2": {"url": "https://example.com/serp-2", "h2s": ["Overview", "Features", "Pricing", "Verdict"], "word_count": 1500},
+  "https://example.com/serp-3": {"url": "https://example.com/serp-3", "h2s": ["Define your pipeline", "Must-have integrations", "Cost per seat", "Migration tips"], "word_count": 1200}
+}

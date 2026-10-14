@@ -1,0 +1,12 @@
+.env
+*.db
+__pycache__/
+.pytest_cache/
+.venv/
+*/runs/
+*/approvals/
+*/cache/
+*/reports/
+*/briefs/
+*.narrative.md
+review_responder/approval_queue.json

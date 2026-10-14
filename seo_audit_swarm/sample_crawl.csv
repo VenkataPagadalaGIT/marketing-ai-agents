@@ -1,0 +1,9 @@
+client,url,status,title_len,meta_len,h1_count,word_count,internal_links_in,canonical_ok
+acme-dental,/,200,55,150,1,900,40,true
+acme-dental,/services/whitening,200,72,0,0,180,3,true
+acme-dental,/blog/old-post,200,48,140,1,2100,0,true
+acme-dental,/about,404,0,0,0,0,5,false
+acme-dental,/contact,200,30,120,2,250,12,true
+bob-plumbing,/,200,60,155,1,700,20,true
+bob-plumbing,/emergency,200,0,0,0,120,1,true
+bob-plumbing,/areas/atlanta,200,58,150,1,400,0,false

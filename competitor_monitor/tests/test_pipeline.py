@@ -1,0 +1,106 @@
+"""Local test cases. Run `pytest`: no network, no API key, no spend.
+
+Three layers:
+  1. Unit:      each code step with a fixture
+  2. Contract:  the LLM step with a mocked model, schema enforced
+  3. End-to-end: a whole run in DRY_RUN + MOCK_LLM mode
+"""
+import os
+from pathlib import Path
+
+os.environ.update({"MOCK_LLM": "1", "DRY_RUN": "1"})  # before importing monitor
+
+import pytest  # noqa: E402
+
+from competitor_monitor import agent, collect, config, deliver, store  # noqa: E402
+from competitor_monitor.llm import LLM, BudgetExceeded  # noqa: E402
+from competitor_monitor.schemas import Item, Judgement, RunStats, Summary  # noqa: E402
+
+FIX = Path(__file__).parent / "fixtures"
+
+
+@pytest.fixture
+def tmp_db(tmp_path, monkeypatch):
+    p = str(tmp_path / "t.db")
+    monkeypatch.setattr(config, "DB_PATH", p)
+    return p
+
+
+@pytest.fixture
+def items():
+    # feedparser accepts a file path, so the fixture stands in for a live feed
+    return collect.from_rss("Acme", "blog", str(FIX / "sample_feed.xml"), client=None)
+
+
+# ---- 1. unit -----------------------------------------------------------------
+def test_collect_parses_feed(items):
+    assert len(items) == 2
+    assert items[0].company == "Acme" and items[0].source == "blog"
+    assert "Pricing Plus" in items[0].title
+    assert items[0].published_at is not None
+    assert len(items[0].content_hash) == 64
+
+
+def test_hash_is_stable_and_changes_with_content():
+    a = collect.content_hash("u", "t", "body")
+    assert a == collect.content_hash("u", "t", "body")
+    assert a != collect.content_hash("u", "t", "body changed")
+
+
+def test_dedupe_second_run_sees_nothing_new(tmp_db, items):
+    assert len(store.filter_new(items, tmp_db)) == 2
+    store.remember(items, {}, tmp_db)
+    assert store.filter_new(items, tmp_db) == []
+
+
+def test_render_quiet_day_is_empty():
+    assert deliver.render_markdown([]) == ""
+
+
+# ---- 2. contract -------------------------------------------------------------
+def test_schema_rejects_bad_llm_output():
+    with pytest.raises(Exception):
+        Judgement.model_validate({"relevance": 42, "category": "product", "reason": "x"})
+    with pytest.raises(Exception):
+        Summary.model_validate({"headline": "h", "summary": "too short", "why_it_matters": "ok enough here"})
+
+
+def test_judge_and_summarise_with_mock(items):
+    llm = LLM(RunStats())
+    j = agent.judge(llm, items[0])
+    assert 0 <= j.relevance <= 10
+    s = agent.summarise(llm, items[0], j)
+    assert s.headline and s.why_it_matters
+    assert llm.stats.llm_calls == 2
+
+
+def test_budget_cap_stops_the_run(items, monkeypatch):
+    monkeypatch.setattr(config, "MAX_LLM_CALLS_PER_RUN", 1)
+    llm = LLM(RunStats())
+    agent.judge(llm, items[0])
+    with pytest.raises(BudgetExceeded):
+        agent.judge(llm, items[1])
+
+
+def test_per_company_cap(monkeypatch):
+    monkeypatch.setattr(config, "MAX_ITEMS_PER_COMPANY", 1)
+    many = [Item(company="Acme", source="blog", url=f"https://a/{i}", title=f"t{i}", text="x" * 400,
+                 content_hash=str(i) * 64) for i in range(4)]
+    entries, judgements = agent.run_agent(LLM(RunStats()), many)
+    assert len(judgements) == 4         # everything judged
+    assert len(entries) == 1            # only one summarised
+
+
+# ---- 3. end to end -----------------------------------------------------------
+def test_full_run_dry(tmp_db, items, capsys):
+    from competitor_monitor import main
+    stats = main.run(items=items)
+    assert stats.errors == []
+    assert stats.items_new == 2
+    assert stats.items_sent == 2
+    out = capsys.readouterr().out
+    assert "Competitor digest" in out and "Acme" in out
+
+    # second run: nothing new, nothing printed
+    stats2 = main.run(items=items)
+    assert stats2.items_new == 0 and stats2.items_sent == 0

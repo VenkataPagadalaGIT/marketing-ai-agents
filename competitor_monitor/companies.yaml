@@ -1,0 +1,20 @@
+# The 5 companies to watch. Replace with your own.
+# Every source is optional; the agent skips what is missing.
+companies:
+  - name: Semrush
+    blog_rss: https://www.semrush.com/blog/feed/
+    news_query: Semrush
+    pricing_url: https://www.semrush.com/pricing/
+  - name: Ahrefs
+    blog_rss: https://ahrefs.com/blog/feed/
+    news_query: Ahrefs
+    pricing_url: https://ahrefs.com/pricing
+  - name: Moz
+    blog_rss: https://moz.com/blog/feed
+    news_query: "Moz SEO"
+  - name: Similarweb
+    blog_rss: https://www.similarweb.com/blog/feed/
+    news_query: Similarweb
+  - name: Screaming Frog
+    blog_rss: https://www.screamingfrog.co.uk/feed/
+    news_query: "Screaming Frog SEO Spider"
