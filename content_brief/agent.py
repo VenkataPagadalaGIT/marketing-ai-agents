@@ -114,8 +114,16 @@ TEMPLATE_GUIDE = {           # the router's choice changes the brief, not just a
 }
 
 
+def _mock_brief(user: str) -> dict:
+    """MOCK_LLM only: the sample brief, re-keyed to the keyword the user asked for."""
+    kw = user.split("keyword=", 1)[1].split(" intent=", 1)[0] if "keyword=" in user else "best crm for small agencies"
+    ex = dict(Brief.model_config["json_schema_extra"]["example"])
+    ex.update(primary_keyword=kw, title=f"{kw.title()}: A Complete Guide"[:70])
+    return ex
+
+
 def run(keyword: str) -> Brief:
-    llm = LLM(RunStats())
+    llm = LLM(RunStats(), mock={"Brief": _mock_brief} if config.MOCK_LLM else None)
     route = llm.structured(config.CHEAP_MODEL, ROUTER_SYSTEM, keyword, Route, max_tokens=60)
 
     notes: list[str] = [f"keyword={keyword} intent={route.intent} template={route.template}"]

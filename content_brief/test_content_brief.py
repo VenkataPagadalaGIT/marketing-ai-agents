@@ -42,3 +42,8 @@ def test_fetch_page_only_accepts_urls_from_the_serp(monkeypatch):
     monkeypatch.setitem(agent.TOOLS, "fetch_page", lambda **kw: seen.append(kw) or real(**kw))
     agent.run("best crm for small agencies")
     assert seen == []                          # refused: that URL never came from search_serp
+
+
+def test_mock_demo_works_for_any_keyword():
+    brief = agent.run("email marketing for dentists")
+    assert brief.primary_keyword == "email marketing for dentists"

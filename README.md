@@ -1,13 +1,13 @@
 # Marketing AI Agents
 
-Six production-shaped AI agents for marketing teams, from a beginner workflow to a multi-client swarm. One shared model client, hard budget caps on every call, 42 offline tests, and a prompt pack generated from the code.
+Six production-shaped AI agents for marketing teams, from a beginner workflow to a multi-client swarm. One shared model client, hard budget caps on every call, 43 offline tests, and a prompt pack generated from the code.
 
 Companion code for **[The Complete Guide to AI Agents for Marketing: From Zero to Production](https://venkatapagadala.com/guides/ai-agents-for-marketing)**.
 
 ```bash
 git clone https://github.com/VenkataPagadalaGIT/marketing-ai-agents && cd marketing-ai-agents
 python -m venv .venv && source .venv/bin/activate && pip install -r requirements.txt
-pytest -q                                         # 42 passed, about 1 second, no network, $0
+pytest -q                                         # 43 passed, about 1 second, no network, $0
 MOCK_LLM=1 python -m competitor_monitor.main      # prints a sample digest, no API key needed
 ```
 
