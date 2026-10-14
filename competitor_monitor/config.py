@@ -18,9 +18,10 @@ OPENROUTER_BASE_URL = "https://openrouter.ai/api/v1"
 JUDGE_MODEL = os.getenv("JUDGE_MODEL", "anthropic/claude-haiku-5.5")
 SUMMARY_MODEL = os.getenv("SUMMARY_MODEL", "anthropic/claude-sonnet-5.5")
 # OpenRouter falls back to these if the primary model errors or is rate-limited.
-FALLBACK_MODELS = os.getenv("FALLBACK_MODELS", "openai/gpt-5-mini,google/gemini-2.5-flash").split(",")
+FALLBACK_MODELS = os.getenv("FALLBACK_MODELS", "openai/gpt-5-mini,google/gemini-3.5-flash").split(",")
 
-# --- Hard limits: the agent stops, it does not "try harder" -----------------
+# --- Hard limits: the run stops, it does not "try harder" -------------------
+# 40 calls covers about 30 new items a day plus summaries. Run --seed once before the first live run.
 MAX_LLM_CALLS_PER_RUN = int(os.getenv("MAX_LLM_CALLS_PER_RUN", "40"))
 MAX_COST_USD_PER_RUN = float(os.getenv("MAX_COST_USD_PER_RUN", "0.10"))
 RELEVANCE_THRESHOLD = int(os.getenv("RELEVANCE_THRESHOLD", "6"))

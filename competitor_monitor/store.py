@@ -1,4 +1,5 @@
-"""Step 2 + 6: Dedupe and remember. SQLite locally; swap DB_PATH for Postgres later."""
+"""Steps 2 and 6: dedupe and remember. SQLite locally; in production move these four tables
+to Postgres (that needs a driver such as psycopg, not only a new path)."""
 import json
 import sqlite3
 from contextlib import contextmanager
@@ -14,6 +15,9 @@ CREATE TABLE IF NOT EXISTS items (
 );
 CREATE TABLE IF NOT EXISTS runs (
   id INTEGER PRIMARY KEY AUTOINCREMENT, started_at TEXT, stats_json TEXT
+);
+CREATE TABLE IF NOT EXISTS snapshots (
+  url TEXT PRIMARY KEY, text TEXT, updated_at TEXT
 );
 CREATE TABLE IF NOT EXISTS digests (
   id INTEGER PRIMARY KEY AUTOINCREMENT, run_id INTEGER, sent_at TEXT, body_json TEXT
@@ -65,3 +69,17 @@ def log_run(stats: RunStats, entries: list[DigestEntry], path: str | None = None
             conn.execute("INSERT INTO digests (run_id, sent_at, body_json) VALUES (?,?,?)",
                          (cur.lastrowid, now, json.dumps([e.model_dump() for e in entries])))
         return cur.lastrowid
+
+
+def get_snapshot(url: str, path: str | None = None) -> str | None:
+    with db(path) as conn:
+        row = conn.execute("SELECT text FROM snapshots WHERE url=?", (url,)).fetchone()
+    return row[0] if row else None
+
+
+def save_snapshot(url: str, text: str, path: str | None = None) -> None:
+    now = datetime.now(timezone.utc).isoformat()
+    with db(path) as conn:
+        conn.execute("INSERT INTO snapshots (url, text, updated_at) VALUES (?,?,?) "
+                     "ON CONFLICT(url) DO UPDATE SET text=excluded.text, updated_at=excluded.updated_at",
+                     (url, text, now))

@@ -1,8 +1,8 @@
 {
   "client": "Northside Dental",
   "campaign": "Fall teeth-whitening promotion",
-  "offer": "$50 off in-office whitening, October 20 – November 30",
-  "audience": "Adults 25–45 within 10 miles of Atlanta office, plus lapsed patients",
+  "offer": "$50 off in-office whitening, October 20 to November 30",
+  "audience": "Adults 25 to 45 within 10 miles of Atlanta office, plus lapsed patients",
   "channels": ["landing page", "email", "instagram", "google ads"],
   "brand_voice": "warm, confident, plain English; never clinical, never pushy",
   "must_not": ["promise results", "mention competitors", "medical claims"],

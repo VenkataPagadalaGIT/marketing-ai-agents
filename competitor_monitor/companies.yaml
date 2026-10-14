@@ -1,5 +1,7 @@
 # The 5 companies to watch. Replace with your own.
 # Every source is optional; the agent skips what is missing.
+# Keys: blog_rss, youtube_rss (a channel's RSS URL), news_query, pricing_url.
+# LinkedIn and X are not read: LinkedIn's terms ban scraping and X's API is paid per read.
 companies:
   - name: Semrush
     blog_rss: https://www.semrush.com/blog/feed/
@@ -13,8 +15,7 @@ companies:
     blog_rss: https://moz.com/blog/feed
     news_query: "Moz SEO"
   - name: Similarweb
-    blog_rss: https://www.similarweb.com/blog/feed/
-    news_query: Similarweb
+    news_query: Similarweb            # its blog has no public RSS feed; news only
   - name: Screaming Frog
     blog_rss: https://www.screamingfrog.co.uk/feed/
     news_query: "Screaming Frog SEO Spider"

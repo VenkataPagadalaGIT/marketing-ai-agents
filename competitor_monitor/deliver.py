@@ -28,14 +28,16 @@ def render_markdown(entries: list[DigestEntry]) -> str:
     return "\n".join(lines)
 
 
-def send(entries: list[DigestEntry]) -> bool:
+def send(entries: list[DigestEntry]) -> str:
+    """Returns "quiet" (nothing to send), "printed" (dry run or no webhook) or "sent".
+    The webhook URL comes from config only; the model never chooses where output goes."""
     body = render_markdown(entries)
     if not body:
         log.info("quiet day, nothing sent")
-        return False
+        return "quiet"
     if config.DRY_RUN or not config.SLACK_WEBHOOK_URL:
         print(body)
-        return False
+        return "printed"
     r = httpx.post(config.SLACK_WEBHOOK_URL, json={"text": body}, timeout=15)
     r.raise_for_status()
-    return True
+    return "sent"
