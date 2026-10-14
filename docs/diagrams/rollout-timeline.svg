@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="540" viewBox="0 0 1200 540" role="img" aria-labelledby="rollout-timeline-title rollout-timeline-desc" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif">
+  <title id="rollout-timeline-title">Rollout timeline for one agent, Oct 19 to Nov 23</title>
+  <desc id="rollout-timeline-desc">Gantt chart of the rollout plan for one agent, from Oct 19 to Nov 23: spec and ROI signed off Oct 19 to Oct 21; build and offline tests Oct 21 to Oct 25; shadow mode (dry run) Oct 26 to Nov 6; a pilot with one user, live, Nov 9 to Nov 13; go-live on Nov 16; first weekly review on Nov 23. Shift the dates to your own start.</desc>
+  <defs>
+    <marker id="rollout-timeline-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#6b7280"/>
+    </marker>
+  </defs>
+  <rect width="1200" height="540" fill="#ffffff"/>
+  <text x="40" y="52" font-size="26" font-weight="600" fill="#111827" dominant-baseline="central">Five weeks from spec to go-live, with two weeks of shadow mode</text>
+  <text x="40" y="84" font-size="16" fill="#4b5563" dominant-baseline="central">Rollout plan for one agent; shift the dates to your start</text>
+  <!-- week grid -->
+  <line x1="380" y1="158" x2="380" y2="500" stroke="#e5e7eb" stroke-width="1"/>
+  <text x="380" y="136" font-size="15" fill="#4b5563" text-anchor="middle" dominant-baseline="central">Oct 19</text>
+  <line x1="516" y1="158" x2="516" y2="500" stroke="#e5e7eb" stroke-width="1"/>
+  <text x="516" y="136" font-size="15" fill="#4b5563" text-anchor="middle" dominant-baseline="central">Oct 26</text>
+  <line x1="652" y1="158" x2="652" y2="500" stroke="#e5e7eb" stroke-width="1"/>
+  <text x="652" y="136" font-size="15" fill="#4b5563" text-anchor="middle" dominant-baseline="central">Nov 2</text>
+  <line x1="788" y1="158" x2="788" y2="500" stroke="#e5e7eb" stroke-width="1"/>
+  <text x="788" y="136" font-size="15" fill="#4b5563" text-anchor="middle" dominant-baseline="central">Nov 9</text>
+  <line x1="924" y1="158" x2="924" y2="500" stroke="#e5e7eb" stroke-width="1"/>
+  <text x="924" y="136" font-size="15" fill="#4b5563" text-anchor="middle" dominant-baseline="central">Nov 16</text>
+  <line x1="1060" y1="158" x2="1060" y2="500" stroke="#e5e7eb" stroke-width="1"/>
+  <text x="1060" y="136" font-size="15" fill="#4b5563" text-anchor="middle" dominant-baseline="central">Nov 23</text>
+  <line x1="380" y1="158" x2="1060" y2="158" stroke="#d1d5db" stroke-width="1.5"/>
+  <line x1="380" y1="200" x2="1060" y2="200" stroke="#f3f4f6" stroke-width="1"/>
+  <line x1="380" y1="254" x2="1060" y2="254" stroke="#f3f4f6" stroke-width="1"/>
+  <line x1="380" y1="308" x2="1060" y2="308" stroke="#f3f4f6" stroke-width="1"/>
+  <line x1="380" y1="362" x2="1060" y2="362" stroke="#f3f4f6" stroke-width="1"/>
+  <line x1="380" y1="416" x2="1060" y2="416" stroke="#f3f4f6" stroke-width="1"/>
+  <line x1="380" y1="470" x2="1060" y2="470" stroke="#f3f4f6" stroke-width="1"/>
+  <!-- go-live marker line -->
+  <line x1="924" y1="158" x2="924" y2="500" stroke="#2563eb" stroke-width="1.5" stroke-dasharray="5 4"/>
+  <!-- rows -->
+  <text x="40" y="200" font-size="17" fill="#111827" dominant-baseline="central">Spec + ROI signed off</text>
+  <text x="40" y="254" font-size="17" fill="#111827" dominant-baseline="central">Build + offline tests</text>
+  <text x="40" y="308" font-size="17" fill="#111827" dominant-baseline="central">Shadow mode (dry run)</text>
+  <text x="40" y="362" font-size="17" fill="#111827" dominant-baseline="central">Pilot: one user, live</text>
+  <text x="40" y="416" font-size="17" font-weight="600" fill="#111827" dominant-baseline="central">Go-live</text>
+  <text x="40" y="470" font-size="17" fill="#111827" dominant-baseline="central">First weekly review</text>
+  <rect x="380" y="188" width="58.29" height="24" rx="6" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.5"/>
+  <rect x="445.29" y="189" width="131.59" height="22" rx="4" fill="#ffffff"/>
+  <text x="450.29" y="200" font-size="15" fill="#4b5563" dominant-baseline="central">Oct 19 to Oct 21</text>
+  <rect x="418.86" y="242" width="97.14" height="24" rx="6" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.5"/>
+  <rect x="523" y="243" width="133.51" height="22" rx="4" fill="#ffffff"/>
+  <text x="528" y="254" font-size="15" fill="#4b5563" dominant-baseline="central">Oct 21 to Oct 25</text>
+  <rect x="516" y="296" width="233.14" height="24" rx="6" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.5"/>
+  <rect x="756.14" y="297" width="129.37" height="22" rx="4" fill="#ffffff"/>
+  <text x="761.14" y="308" font-size="15" fill="#4b5563" dominant-baseline="central">Oct 26 to Nov 6</text>
+  <rect x="788" y="350" width="97.14" height="24" rx="6" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.5"/>
+  <rect x="651.6" y="351" width="129.4" height="22" rx="4" fill="#ffffff"/>
+  <text x="776" y="362" font-size="15" fill="#4b5563" text-anchor="end" dominant-baseline="central">Nov 9 to Nov 13</text>
+  <polygon points="924,404 936,416 924,428 912,416" fill="#2563eb" stroke="#ffffff" stroke-width="2" stroke-linejoin="round"/>
+  <rect x="939" y="405" width="63.2" height="22" rx="4" fill="#ffffff"/>
+  <text x="944" y="416" font-size="15" font-weight="600" fill="#111827" dominant-baseline="central">Nov 16</text>
+  <polygon points="1060,459 1071,470 1060,481 1049,470" fill="#9ca3af" stroke="#ffffff" stroke-width="2" stroke-linejoin="round"/>
+  <rect x="1074" y="459" width="63.53" height="22" rx="4" fill="#ffffff"/>
+  <text x="1079" y="470" font-size="15" fill="#4b5563" dominant-baseline="central">Nov 23</text>
+</svg>

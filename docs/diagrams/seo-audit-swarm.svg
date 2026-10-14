@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800" role="img" aria-labelledby="seo-audit-swarm-title seo-audit-swarm-desc" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif">
+  <title id="seo-audit-swarm-title">SEO audit swarm: one worker per client, triage, specialist handoff</title>
+  <desc id="seo-audit-swarm-desc">SEO audit swarm. A job queue of client pages (acme-dental p1, bob-plumbing p2 and 48 more) feeds one worker per client. Each worker enforces a page cap, a dollar cap and at most 8 calls in flight, and caches results per page. Every page is triaged by a cheap model, 8 at once, which returns issues, a handoff and a severity. Pages with severity 3 or more hand off to the Technical (status, canonical), Content (title, meta, h1, thin) or Links (orphans) specialist. Code aggregates triage and specialist results into issue counts and fixes ranked by impact, then produces a client report checked by a critic, saved as reports/acme-dental.json. Workers for different clients run concurrently, and re-running the same crawl re-triages nothing because every page result is cached.</desc>
+  <defs>
+    <marker id="seo-audit-swarm-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#6b7280"/>
+    </marker>
+  </defs>
+  <rect width="1200" height="800" fill="#ffffff"/>
+  <text x="40" y="52" font-size="26" font-weight="600" fill="#111827" dominant-baseline="central">One worker per client: pages fan out to triage, hard cases hand off to specialists</text>
+  <!-- worker group -->
+  <rect x="284" y="100" width="876" height="502" rx="14" fill="#f9fafb" stroke="#9ca3af" stroke-width="1.5" stroke-dasharray="6 5"/>
+  <text x="302" y="124" font-size="14" fill="#4b5563" dominant-baseline="central">Worker per client: page cap, dollar cap, at most 8 calls in flight, results cached per page</text>
+  <rect x="40" y="234" width="204" height="132" rx="10" fill="#ffffff" stroke="#d1d5db" stroke-width="1.5"/>
+  <text x="142" y="266" font-size="18" font-weight="600" fill="#111827" text-anchor="middle" dominant-baseline="central">Job queue</text>
+  <text x="142" y="293.5" font-size="15" fill="#4b5563" text-anchor="middle" dominant-baseline="central">acme-dental p1</text>
+  <text x="142" y="314.5" font-size="15" fill="#4b5563" text-anchor="middle" dominant-baseline="central">bob-plumbing p2</text>
+  <text x="142" y="335.5" font-size="15" fill="#4b5563" text-anchor="middle" dominant-baseline="central">… 48 more</text>
+  <rect x="324" y="246" width="300" height="108" rx="10" fill="#eff6ff" stroke="#2563eb" stroke-width="2"/>
+  <text x="474" y="276.5" font-size="18" font-weight="600" fill="#111827" text-anchor="middle" dominant-baseline="central">Triage per page</text>
+  <text x="474" y="304" font-size="15" fill="#4b5563" text-anchor="middle" dominant-baseline="central">cheap model, 8 at once</text>
+  <text x="474" y="325" font-size="15" fill="#4b5563" text-anchor="middle" dominant-baseline="central">issues + handoff + severity</text>
+  <rect x="876" y="164" width="216" height="76" rx="10" fill="#ffffff" stroke="#d1d5db" stroke-width="1.5"/>
+  <text x="984" y="189" font-size="18" font-weight="600" fill="#111827" text-anchor="middle" dominant-baseline="central">Technical</text>
+  <text x="984" y="216.5" font-size="15" fill="#4b5563" text-anchor="middle" dominant-baseline="central">status, canonical</text>
+  <rect x="876" y="262" width="216" height="76" rx="10" fill="#ffffff" stroke="#d1d5db" stroke-width="1.5"/>
+  <text x="984" y="287" font-size="18" font-weight="600" fill="#111827" text-anchor="middle" dominant-baseline="central">Content</text>
+  <text x="984" y="314.5" font-size="15" fill="#4b5563" text-anchor="middle" dominant-baseline="central">title, meta, h1, thin</text>
+  <rect x="876" y="360" width="216" height="76" rx="10" fill="#ffffff" stroke="#d1d5db" stroke-width="1.5"/>
+  <text x="984" y="385" font-size="18" font-weight="600" fill="#111827" text-anchor="middle" dominant-baseline="central">Links</text>
+  <text x="984" y="412.5" font-size="15" fill="#4b5563" text-anchor="middle" dominant-baseline="central">orphans</text>
+  <rect x="324" y="488" width="300" height="84" rx="10" fill="#ffffff" stroke="#d1d5db" stroke-width="1.5"/>
+  <text x="474" y="517" font-size="18" font-weight="600" fill="#111827" text-anchor="middle" dominant-baseline="central">Aggregate in code</text>
+  <text x="474" y="544.5" font-size="15" fill="#4b5563" text-anchor="middle" dominant-baseline="central">issue counts, fixes by impact</text>
+  <rect x="324" y="646" width="300" height="84" rx="10" fill="#ffffff" stroke="#d1d5db" stroke-width="1.5"/>
+  <text x="474" y="675" font-size="18" font-weight="600" fill="#111827" text-anchor="middle" dominant-baseline="central">Client report + critic check</text>
+  <text x="474" y="702.5" font-size="15" fill="#4b5563" text-anchor="middle" dominant-baseline="central">reports/acme-dental.json</text>
+  <!-- flow -->
+  <path d="M244,300 L322,300" fill="none" stroke="#6b7280" stroke-width="1.75" stroke-linejoin="round" marker-end="url(#seo-audit-swarm-arrow)"/>
+  <path d="M624,300 L874,300" fill="none" stroke="#6b7280" stroke-width="1.75" stroke-linejoin="round" marker-end="url(#seo-audit-swarm-arrow)"/>
+  <rect x="644.8" y="272" width="170.39" height="22" rx="4" fill="#f9fafb"/>
+  <text x="730" y="283" font-size="14" fill="#6b7280" text-anchor="middle" dominant-baseline="central">severity 3 or more only</text>
+  <path d="M836,300 L836,210 Q836,202 844,202 L874,202" fill="none" stroke="#6b7280" stroke-width="1.75" stroke-linejoin="round" marker-end="url(#seo-audit-swarm-arrow)"/>
+  <path d="M836,300 L836,390 Q836,398 844,398 L874,398" fill="none" stroke="#6b7280" stroke-width="1.75" stroke-linejoin="round" marker-end="url(#seo-audit-swarm-arrow)"/>
+  <path d="M474,354 L474,486" fill="none" stroke="#6b7280" stroke-width="1.75" stroke-linejoin="round" marker-end="url(#seo-audit-swarm-arrow)"/>
+  <path d="M1092,202 L1114,202 Q1124,202 1124,212 L1124,520 Q1124,530 1114,530 L626,530" fill="none" stroke="#6b7280" stroke-width="1.75" stroke-linejoin="round" marker-end="url(#seo-audit-swarm-arrow)"/>
+  <path d="M1092,300 L1124,300" fill="none" stroke="#6b7280" stroke-width="1.75" stroke-linejoin="round"/>
+  <path d="M1092,398 L1124,398" fill="none" stroke="#6b7280" stroke-width="1.75" stroke-linejoin="round"/>
+  <path d="M474,572 L474,644" fill="none" stroke="#6b7280" stroke-width="1.75" stroke-linejoin="round" marker-end="url(#seo-audit-swarm-arrow)"/>
+  <text x="40" y="770" font-size="14" fill="#6b7280" dominant-baseline="central">Workers for different clients run concurrently. Re-running the same crawl re-triages nothing: every page result is cached.</text>
+</svg>

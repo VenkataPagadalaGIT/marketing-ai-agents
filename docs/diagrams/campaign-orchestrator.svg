@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="912" viewBox="0 0 1200 912" role="img" aria-labelledby="campaign-orchestrator-title campaign-orchestrator-desc" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif">
+  <title id="campaign-orchestrator-title">Campaign orchestrator: manager, parallel specialists, reviewer, human approval</title>
+  <desc id="campaign-orchestrator-desc">Campaign orchestrator. A campaign brief in JSON goes to a manager agent that writes a plan of 2 to 6 typed tasks. Four specialists run in parallel with asyncio.gather, each with its own call cap: SEO writes a landing page, Email a 3-email sequence, Social 5 captions and Paid 3 ad sets. A brand and compliance reviewer uses a cheap model to score every asset, then a human approves, with flagged assets listed first. State is a typed CampaignState object, checkpointed after every stage, so a rerun resumes from the last checkpoint.</desc>
+  <defs>
+    <marker id="campaign-orchestrator-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#6b7280"/>
+    </marker>
+  </defs>
+  <rect width="1200" height="912" fill="#ffffff"/>
+  <text x="40" y="52" font-size="26" font-weight="600" fill="#111827" dominant-baseline="central">A manager plans, four specialists work in parallel,</text>
+  <text x="40" y="86" font-size="26" font-weight="600" fill="#111827" dominant-baseline="central">a reviewer scores, a human approves</text>
+  <rect x="450" y="128" width="300" height="64" rx="10" fill="#ffffff" stroke="#d1d5db" stroke-width="1.5"/>
+  <text x="600" y="160" font-size="18" font-weight="600" fill="#111827" text-anchor="middle" dominant-baseline="central">Campaign brief (JSON)</text>
+  <rect x="400" y="232" width="400" height="88" rx="10" fill="#eff6ff" stroke="#2563eb" stroke-width="2"/>
+  <text x="600" y="263" font-size="18" font-weight="600" fill="#111827" text-anchor="middle" dominant-baseline="central">Manager agent</text>
+  <text x="600" y="290.5" font-size="15" fill="#4b5563" text-anchor="middle" dominant-baseline="central">writes a Plan of 2 to 6 typed Tasks</text>
+  <!-- parallel specialists -->
+  <rect x="40" y="364" width="1120" height="196" rx="14" fill="#f9fafb" stroke="#9ca3af" stroke-width="1.5" stroke-dasharray="6 5"/>
+  <text x="58" y="388" font-size="14" fill="#4b5563" dominant-baseline="central">Run in parallel (asyncio.gather), each with its own call cap</text>
+  <rect x="64" y="452" width="232" height="84" rx="10" fill="#ffffff" stroke="#d1d5db" stroke-width="1.5"/>
+  <text x="180" y="481" font-size="18" font-weight="600" fill="#111827" text-anchor="middle" dominant-baseline="central">SEO</text>
+  <text x="180" y="508.5" font-size="15" fill="#4b5563" text-anchor="middle" dominant-baseline="central">landing page</text>
+  <rect x="344" y="452" width="232" height="84" rx="10" fill="#ffffff" stroke="#d1d5db" stroke-width="1.5"/>
+  <text x="460" y="481" font-size="18" font-weight="600" fill="#111827" text-anchor="middle" dominant-baseline="central">Email</text>
+  <text x="460" y="508.5" font-size="15" fill="#4b5563" text-anchor="middle" dominant-baseline="central">3-email sequence</text>
+  <rect x="624" y="452" width="232" height="84" rx="10" fill="#ffffff" stroke="#d1d5db" stroke-width="1.5"/>
+  <text x="740" y="481" font-size="18" font-weight="600" fill="#111827" text-anchor="middle" dominant-baseline="central">Social</text>
+  <text x="740" y="508.5" font-size="15" fill="#4b5563" text-anchor="middle" dominant-baseline="central">5 captions</text>
+  <rect x="904" y="452" width="232" height="84" rx="10" fill="#ffffff" stroke="#d1d5db" stroke-width="1.5"/>
+  <text x="1020" y="481" font-size="18" font-weight="600" fill="#111827" text-anchor="middle" dominant-baseline="central">Paid</text>
+  <text x="1020" y="508.5" font-size="15" fill="#4b5563" text-anchor="middle" dominant-baseline="central">3 ad sets</text>
+  <rect x="400" y="624" width="400" height="88" rx="10" fill="#ffffff" stroke="#d1d5db" stroke-width="1.5"/>
+  <text x="600" y="655" font-size="18" font-weight="600" fill="#111827" text-anchor="middle" dominant-baseline="central">Brand + compliance reviewer</text>
+  <text x="600" y="682.5" font-size="15" fill="#4b5563" text-anchor="middle" dominant-baseline="central">cheap model scores every asset</text>
+  <rect x="400" y="756" width="400" height="88" rx="10" fill="#ecfdf5" stroke="#059669" stroke-width="2"/>
+  <text x="600" y="787" font-size="18" font-weight="600" fill="#111827" text-anchor="middle" dominant-baseline="central">Human approval</text>
+  <text x="600" y="814.5" font-size="15" fill="#4b5563" text-anchor="middle" dominant-baseline="central">flagged assets listed first</text>
+  <!-- flow -->
+  <path d="M600,192 L600,230" fill="none" stroke="#6b7280" stroke-width="1.75" stroke-linejoin="round" marker-end="url(#campaign-orchestrator-arrow)"/>
+  <path d="M600,320 L600,416" fill="none" stroke="#6b7280" stroke-width="1.75" stroke-linejoin="round"/>
+  <path d="M180,450 L180,426 Q180,416 190,416 L1010,416 Q1020,416 1020,426 L1020,450" fill="none" stroke="#6b7280" stroke-width="1.75" stroke-linejoin="round" marker-start="url(#campaign-orchestrator-arrow)" marker-end="url(#campaign-orchestrator-arrow)"/>
+  <path d="M460,416 L460,450" fill="none" stroke="#6b7280" stroke-width="1.75" stroke-linejoin="round" marker-end="url(#campaign-orchestrator-arrow)"/>
+  <path d="M740,416 L740,450" fill="none" stroke="#6b7280" stroke-width="1.75" stroke-linejoin="round" marker-end="url(#campaign-orchestrator-arrow)"/>
+  <path d="M180,536 L180,580 Q180,590 190,590 L1010,590 Q1020,590 1020,580 L1020,536" fill="none" stroke="#6b7280" stroke-width="1.75" stroke-linejoin="round"/>
+  <path d="M460,536 L460,590" fill="none" stroke="#6b7280" stroke-width="1.75" stroke-linejoin="round"/>
+  <path d="M740,536 L740,590" fill="none" stroke="#6b7280" stroke-width="1.75" stroke-linejoin="round"/>
+  <path d="M600,590 L600,622" fill="none" stroke="#6b7280" stroke-width="1.75" stroke-linejoin="round" marker-end="url(#campaign-orchestrator-arrow)"/>
+  <path d="M600,712 L600,754" fill="none" stroke="#6b7280" stroke-width="1.75" stroke-linejoin="round" marker-end="url(#campaign-orchestrator-arrow)"/>
+  <text x="40" y="884" font-size="14" fill="#6b7280" dominant-baseline="central">State is a typed CampaignState object, checkpointed after every stage; a rerun resumes from the last checkpoint.</text>
+</svg>

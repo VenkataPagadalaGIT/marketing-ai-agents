@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="572" viewBox="0 0 1200 572" role="img" aria-labelledby="competitor-monitor-architecture-title competitor-monitor-architecture-desc" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif">
+  <title id="competitor-monitor-architecture-title">Competitor monitor architecture</title>
+  <desc id="competitor-monitor-architecture-desc">Architecture of the competitor monitor. Code collects RSS feeds, pages and news for 5 companies with feedparser and httpx, then dedupes items by hash against SQLite. Inside the group labeled LLM via OpenRouter, the only paid steps, a cheap model judges each item with a score from 0 to 10 and a stronger model summarizes the relevant items as JSON. Code delivers the digest to Slack; a dry run prints it instead. Dedupe, judge and summarize write to storage: SQLite locally or Postgres in production, holding items, scores, page snapshots, digests, the run log and cost. The job is scheduled on weekdays by cron or GitHub Actions, and every run logs calls and cost.</desc>
+  <defs>
+    <marker id="competitor-monitor-architecture-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#6b7280"/>
+    </marker>
+  </defs>
+  <rect width="1200" height="572" fill="#ffffff"/>
+  <text x="40" y="52" font-size="26" font-weight="600" fill="#111827" dominant-baseline="central">Code collects and delivers; the model only judges and summarizes</text>
+  <!-- paid model group -->
+  <rect x="450" y="170" width="472" height="186" rx="14" fill="#f9fafb" stroke="#9ca3af" stroke-width="1.5" stroke-dasharray="6 5"/>
+  <text x="468" y="194" font-size="14" fill="#4b5563" dominant-baseline="central">LLM via OpenRouter: the only paid steps</text>
+  <!-- pipeline -->
+  <rect x="42" y="100" width="172" height="84" rx="10" fill="#ffffff" stroke="#d1d5db" stroke-width="1.5"/>
+  <text x="128" y="129" font-size="18" font-weight="600" fill="#111827" text-anchor="middle" dominant-baseline="central">5 companies</text>
+  <text x="128" y="156.5" font-size="15" fill="#4b5563" text-anchor="middle" dominant-baseline="central">RSS, pages, news</text>
+  <rect x="42" y="230" width="172" height="104" rx="10" fill="#ffffff" stroke="#d1d5db" stroke-width="1.5"/>
+  <text x="128" y="269" font-size="18" font-weight="600" fill="#111827" text-anchor="middle" dominant-baseline="central">Collect</text>
+  <text x="128" y="296.5" font-size="15" fill="#4b5563" text-anchor="middle" dominant-baseline="central">feedparser, httpx</text>
+  <rect x="254" y="230" width="156" height="104" rx="10" fill="#ffffff" stroke="#d1d5db" stroke-width="1.5"/>
+  <text x="332" y="269" font-size="18" font-weight="600" fill="#111827" text-anchor="middle" dominant-baseline="central">Dedupe</text>
+  <text x="332" y="296.5" font-size="15" fill="#4b5563" text-anchor="middle" dominant-baseline="central">hash vs SQLite</text>
+  <rect x="468" y="230" width="196" height="104" rx="10" fill="#eff6ff" stroke="#2563eb" stroke-width="2"/>
+  <text x="566" y="258.5" font-size="18" font-weight="600" fill="#111827" text-anchor="middle" dominant-baseline="central">Judge</text>
+  <text x="566" y="286" font-size="15" fill="#4b5563" text-anchor="middle" dominant-baseline="central">cheap model</text>
+  <text x="566" y="307" font-size="15" fill="#4b5563" text-anchor="middle" dominant-baseline="central">scores 0 to 10</text>
+  <rect x="700" y="230" width="204" height="104" rx="10" fill="#eff6ff" stroke="#2563eb" stroke-width="2"/>
+  <text x="802" y="269" font-size="18" font-weight="600" fill="#111827" text-anchor="middle" dominant-baseline="central">Summarize</text>
+  <text x="802" y="296.5" font-size="15" fill="#4b5563" text-anchor="middle" dominant-baseline="central">stronger model, JSON</text>
+  <rect x="962" y="230" width="196" height="104" rx="10" fill="#ffffff" stroke="#d1d5db" stroke-width="1.5"/>
+  <text x="1060" y="269" font-size="18" font-weight="600" fill="#111827" text-anchor="middle" dominant-baseline="central">Deliver</text>
+  <text x="1060" y="296.5" font-size="15" fill="#4b5563" text-anchor="middle" dominant-baseline="central">Slack (dry run prints)</text>
+  <rect x="254" y="408" width="650" height="84" rx="10" fill="#ffffff" stroke="#d1d5db" stroke-width="1.5"/>
+  <text x="579" y="437" font-size="18" font-weight="600" fill="#111827" text-anchor="middle" dominant-baseline="central">SQLite (local) or Postgres (production)</text>
+  <text x="579" y="464.5" font-size="15" fill="#4b5563" text-anchor="middle" dominant-baseline="central">items, scores, page snapshots, digests, run log and cost</text>
+  <!-- flow -->
+  <path d="M128,184 L128,228" fill="none" stroke="#6b7280" stroke-width="1.75" stroke-linejoin="round" marker-end="url(#competitor-monitor-architecture-arrow)"/>
+  <path d="M214,282 L252,282" fill="none" stroke="#6b7280" stroke-width="1.75" stroke-linejoin="round" marker-end="url(#competitor-monitor-architecture-arrow)"/>
+  <path d="M410,282 L466,282" fill="none" stroke="#6b7280" stroke-width="1.75" stroke-linejoin="round" marker-end="url(#competitor-monitor-architecture-arrow)"/>
+  <path d="M664,282 L698,282" fill="none" stroke="#6b7280" stroke-width="1.75" stroke-linejoin="round" marker-end="url(#competitor-monitor-architecture-arrow)"/>
+  <path d="M904,282 L960,282" fill="none" stroke="#6b7280" stroke-width="1.75" stroke-linejoin="round" marker-end="url(#competitor-monitor-architecture-arrow)"/>
+  <path d="M332,334 L332,406" fill="none" stroke="#6b7280" stroke-width="1.75" stroke-linejoin="round" marker-end="url(#competitor-monitor-architecture-arrow)"/>
+  <path d="M566,334 L566,406" fill="none" stroke="#6b7280" stroke-width="1.75" stroke-linejoin="round" marker-end="url(#competitor-monitor-architecture-arrow)"/>
+  <path d="M802,334 L802,406" fill="none" stroke="#6b7280" stroke-width="1.75" stroke-linejoin="round" marker-end="url(#competitor-monitor-architecture-arrow)"/>
+  <text x="40" y="536" font-size="14" fill="#6b7280" dominant-baseline="central">Scheduled on weekdays by cron or GitHub Actions; every run logs calls and cost.</text>
+</svg>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="352" viewBox="0 0 1200 352" role="img" aria-labelledby="agent-loop-title agent-loop-desc" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif">
+  <title id="agent-loop-title">The agent loop: observe, decide, act, check, until the goal is met</title>
+  <desc id="agent-loop-desc">Flowchart of the agent loop. Goal and context go to the LLM, which decides the next step or that it is done. The agent calls a tool (fetch, search, save), then checks whether the goal is met. If yes, it returns the output. If no, the tool result is fed back to the LLM and the loop repeats. The loop is what separates an agent from a single prompt.</desc>
+  <defs>
+    <marker id="agent-loop-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#6b7280"/>
+    </marker>
+  </defs>
+  <rect width="1200" height="352" fill="#ffffff"/>
+  <text x="40" y="52" font-size="26" font-weight="600" fill="#111827" dominant-baseline="central">An agent loops: observe, decide, act, check, until the goal is met</text>
+  <text x="40" y="84" font-size="16" fill="#4b5563" dominant-baseline="central">The loop is what separates an agent from a single prompt</text>
+  <!-- steps -->
+  <rect x="40" y="146" width="210" height="96" rx="10" fill="#ffffff" stroke="#d1d5db" stroke-width="1.5"/>
+  <text x="145" y="181" font-size="18" font-weight="600" fill="#111827" text-anchor="middle" dominant-baseline="central">Goal + context</text>
+  <text x="145" y="208.5" font-size="15" fill="#4b5563" text-anchor="middle" dominant-baseline="central">what to achieve</text>
+  <rect x="298" y="146" width="210" height="96" rx="10" fill="#eff6ff" stroke="#2563eb" stroke-width="2"/>
+  <text x="403" y="181" font-size="18" font-weight="600" fill="#111827" text-anchor="middle" dominant-baseline="central">LLM decides</text>
+  <text x="403" y="208.5" font-size="15" fill="#4b5563" text-anchor="middle" dominant-baseline="central">next step or done</text>
+  <rect x="556" y="146" width="210" height="96" rx="10" fill="#ffffff" stroke="#d1d5db" stroke-width="1.5"/>
+  <text x="661" y="181" font-size="18" font-weight="600" fill="#111827" text-anchor="middle" dominant-baseline="central">Call a tool</text>
+  <text x="661" y="208.5" font-size="15" fill="#4b5563" text-anchor="middle" dominant-baseline="central">fetch, search, save</text>
+  <polygon points="902,134 990,194 902,254 814,194" fill="#ffffff" stroke="#9ca3af" stroke-width="1.5" stroke-linejoin="round"/>
+  <text x="902" y="194" font-size="18" fill="#111827" text-anchor="middle" dominant-baseline="central">Goal met?</text>
+  <rect x="1038" y="162" width="122" height="64" rx="10" fill="#ffffff" stroke="#d1d5db" stroke-width="1.5"/>
+  <text x="1099" y="194" font-size="18" font-weight="600" fill="#111827" text-anchor="middle" dominant-baseline="central">Output</text>
+  <!-- arrows -->
+  <path d="M250,194 L296,194" fill="none" stroke="#6b7280" stroke-width="1.75" stroke-linejoin="round" marker-end="url(#agent-loop-arrow)"/>
+  <path d="M508,194 L554,194" fill="none" stroke="#6b7280" stroke-width="1.75" stroke-linejoin="round" marker-end="url(#agent-loop-arrow)"/>
+  <path d="M766,194 L812,194" fill="none" stroke="#6b7280" stroke-width="1.75" stroke-linejoin="round" marker-end="url(#agent-loop-arrow)"/>
+  <path d="M990,194 L1036,194" fill="none" stroke="#6b7280" stroke-width="1.75" stroke-linejoin="round" marker-end="url(#agent-loop-arrow)"/>
+  <rect x="996.98" y="167" width="34.03" height="22" rx="4" fill="#ffffff"/>
+  <text x="1014" y="178" font-size="14" fill="#6b7280" text-anchor="middle" dominant-baseline="central">yes</text>
+  <path d="M902,254 L902,294 Q902,304 892,304 L413,304 Q403,304 403,294 L403,244" fill="none" stroke="#6b7280" stroke-width="1.75" stroke-linejoin="round" marker-end="url(#agent-loop-arrow)"/>
+  <rect x="909" y="270" width="27.42" height="22" rx="4" fill="#ffffff"/>
+  <text x="914" y="281" font-size="14" fill="#6b7280" dominant-baseline="central">no</text>
+  <rect x="591.2" y="276" width="122.61" height="22" rx="4" fill="#ffffff"/>
+  <text x="652.5" y="287" font-size="14" fill="#6b7280" text-anchor="middle" dominant-baseline="central">feed result back</text>
+</svg>
